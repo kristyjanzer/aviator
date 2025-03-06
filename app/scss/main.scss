@@ -156,6 +156,10 @@ button {
 		color: $white;
 		font-size: 18px;
 		font-weight: 600;
+
+		&:hover {
+			color: $accent;
+		}
 	}
 
 	&__item {
@@ -164,15 +168,41 @@ button {
 }
 
 .header-menu-more {
+	position: relative;
+	width: 100px;
+	cursor: pointer;
+
+	&::after {
+    content: "";
+		background-image: url(../img/arrow.svg);
+		background-repeat: no-repeat;
+    width: 24px;
+    height: 32px;
+    transform: translate(-50%,-50%) rotate(0);
+    position: absolute;
+    top: 16px;
+    right: 5px;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 250ms cubic-bezier(.4,.25,.3,1)	;
+	}
+
+	&.active::after {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+
 	&:not(.active) &__list {
 		display: none;
 	}
 
 	&__title {
-		cursor: pointer;
 		color: $white;
 		font-size: 18px;
 		font-weight: 600;
+
+		&:hover {
+			color: $accent;
+		}
 	}
 
 	&__list {
