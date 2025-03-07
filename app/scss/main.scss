@@ -279,16 +279,58 @@ button {
 	&__button {
 		padding-left: 55px;
 		padding-right: 55px;
-
-		&--demo {
-			padding-left: 30px;
-			padding-right: 30px;
-		}
 	}
 }
 
 .header-button-menu {
 	display: none;
+}
+
+
+.main {
+	background-color: $white;
+}
+
+.about {
+	margin-top: 50px;
+
+	&__table-of-contents {
+		margin-top: 34px;
+	}
+}
+
+.article {
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__col {
+		display: flex;
+		align-items: center;
+		gap: 11px;
+	}
+
+	&__info {
+		display: flex;
+		gap: 5px;
+	}
+
+	&__icon {
+		font-size: 0;
+	}
+
+	&__text {
+		font-size: 14px;
+		color: #404040;
+	}
+
+	&__date,
+	&__time {
+		font-weight: 500;
+		font-size: 14px;
+	}
 }
 
 
@@ -302,9 +344,11 @@ button {
 
 @media (max-width: 900px) {
 	.header {
+		background-position: 30% 0px;
+
 		&__main {
 			padding-top: 40px;
-			padding-bottom: 250px;
+			padding-bottom: 70px;
 		}
 	}
 
@@ -425,6 +469,25 @@ button {
 			left: 0;
 			right: 0;
 			background: none;
+		}
+	}
+
+	.about {
+		&__table-of-contents {
+			margin-top: 32px;
+		}
+	}
+
+	.article {
+		&__row {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		&__text,
+		&__date,
+		&__time {
+			font-size: 14px;
 		}
 	}
 }
