@@ -104,18 +104,29 @@ button {
 }
 
 .button {
-	font-weight: 500;
+	font-weight: 600;
+	line-height: 130%;
 	text-align: center;
-	padding: 18px 20px;
-	font-size: 16px;
+	padding: 18px;
+	font-size: 18px;
 	font-family: $default-font;
 	cursor: pointer;
-	background-color: $primary;
-	color: $text;
 	transition: .3s all ease;
+	border-radius: 8px;
+	display: inline-block;
 
 	&:hover {
 		box-shadow: inset 0 0 0 30px rgba(255, 255, 255, .1);
+	}
+
+	&--accent {
+		background-color: $accent;
+		color: $white;
+	}
+
+	&--light-accent {
+		background-color: $white;
+		color: $accent;
 	}
 }
 
@@ -124,7 +135,7 @@ button {
 .header {
 	min-height: 604px;
 	background-repeat: no-repeat;
-	background-position: bottom center;
+	background-position: center;
 	background-size: cover;
 
 	&__top {
@@ -133,10 +144,16 @@ button {
 		background-color: rgba(13, 6, 44, 0.5);
 		padding: 20px 0;
 	}
+
+	&__main {
+		padding-top: 102px;
+		padding-bottom: 85px;
+	}
 }
 
 .header-info {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 }
 
@@ -158,7 +175,7 @@ button {
 		font-weight: 600;
 
 		&:hover {
-			color: $accent;
+			color: #FF4D76;
 		}
 	}
 
@@ -177,12 +194,12 @@ button {
 	&:hover {
 		svg {
 			path {
-				fill: $accent;
+				fill: #FF4D76;
 			}
 		}
 
 		.header-menu-more__title {
-			color: $accent;
+			color: #FF4D76;
 		}
 	}
 
@@ -192,12 +209,12 @@ button {
 				transform: translateY(20%) rotate(180deg);
 				
 				path {
-					fill: $accent;
+					fill: #FF4D76;
 				}
 			}
 
 			&__title {
-				color: $accent;
+				color: #FF4D76;
 			}
 		}
 	}
@@ -231,11 +248,48 @@ button {
 		font-weight: 400;
 
 		&:hover{
-			color: $accent;
+			color: #FF4D76;
 		}
 	}
 }
 
+.header-main {
+	&__title {
+		font-size: 60px;
+		font-weight: 600;
+		color: $white;
+		max-width: 570px;
+	}
+
+	&__subtitle {
+		margin-top: 26px;
+		font-size: 22px;
+		font-weight: 500;
+		color: $white;
+		max-width: 640px;
+	}
+
+	&__buttons {
+		margin-top: 40px;
+		display: flex;
+		align-items: center;
+		gap: 25px;
+	}
+
+	&__button {
+		padding-left: 55px;
+		padding-right: 55px;
+
+		&--demo {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+}
+
+.header-button-menu {
+	display: none;
+}
 
 
 
@@ -247,7 +301,105 @@ button {
 
 
 @media (max-width: 900px) {
+	.header-info {
+		&__row {
+			display: none;
+		}
+	}
 
+	.header-button-menu {
+		display: block;
+		position: absolute;
+		top: 40px;
+		right: 25px;
+
+		&__icon {
+			display: block;
+			background: 0 0;
+			width: 25px;
+			height: 18px;
+			color: $white;
+			transform: translateY(-50%);
+
+			&::after,
+			&::before {
+				content: "";
+        width: 24px;
+        height: 18px;
+        border: 0 solid #fff;
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: .5s;
+			}
+
+			&::before {
+				border-width: 2px 0;
+        background: linear-gradient(to bottom, transparent calc(50% - 1px), #fff 0 calc(50% + 1px), transparent 0);
+			}
+
+			&::after {
+				background: linear-gradient(to bottom, transparent calc(50% - 1px), #fff 0 calc(50% + 1px), transparent 0), linear-gradient(to right, transparent calc(50% - 1px), #fff 0 calc(50% + 1px), transparent 0);
+        transform: rotate(45deg) scale(0);
+        opacity: 0;
+			}
+		}
+
+		&__body {
+			z-index: 2;
+			position: fixed;
+			width: 100%;
+			min-height: 100vh;
+			top: 83px;
+			left: 0;
+			background-color: #0D062C;
+			overflow: auto;
+			transform: translateX(100%);
+			transition: all .5s ease;
+			padding: 20px;
+
+			&.active {
+        transform: translateX(0);
+        display: flex;
+        flex-direction: column
+			}
+		}
+	}
+	
+	.header-menu-open {
+		.header-button-menu__icon {
+			&::before {
+				transform: scale(0);
+				opacity: 0;
+			}
+
+			&::after {
+        transform: rotate(45deg);
+        opacity: 1;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        right: 4px;
+			}
+		}
+	}
+
+	.header-menu {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+
+	.header-menu-more {
+		&__list {
+			padding: 0;
+			left: 0;
+			right: 0;
+			background: none;
+		}
+	}
 }
 
 
