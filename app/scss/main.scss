@@ -169,26 +169,37 @@ button {
 
 .header-menu-more {
 	position: relative;
-	width: 100px;
 	cursor: pointer;
+	display: flex;
+	align-items: flex-start;
+	gap: 5px;
 
-	&::after {
-    content: "";
-		background-image: url(../img/arrow.svg);
-		background-repeat: no-repeat;
-    width: 24px;
-    height: 32px;
-    transform: translate(-50%,-50%) rotate(0);
-    position: absolute;
-    top: 16px;
-    right: 5px;
-    pointer-events: none;
-    z-index: 2;
-    transition: all 250ms cubic-bezier(.4,.25,.3,1)	;
+	&:hover {
+		svg {
+			path {
+				fill: $accent;
+			}
+		}
+
+		.header-menu-more__title {
+			color: $accent;
+		}
 	}
 
-	&.active::after {
-		transform: translate(-50%, -50%) rotate(180deg);
+	&.active {
+		.header-menu-more {
+			&__icon {
+				transform: translateY(20%) rotate(180deg);
+				
+				path {
+					fill: $accent;
+				}
+			}
+
+			&__title {
+				color: $accent;
+			}
+		}
 	}
 
 	&:not(.active) &__list {
@@ -199,10 +210,6 @@ button {
 		color: $white;
 		font-size: 18px;
 		font-weight: 600;
-
-		&:hover {
-			color: $accent;
-		}
 	}
 
 	&__list {
@@ -222,6 +229,10 @@ button {
 		color: $white;
 		font-size: 18px;
 		font-weight: 400;
+
+		&:hover{
+			color: $accent;
+		}
 	}
 }
 

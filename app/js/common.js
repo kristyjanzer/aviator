@@ -1,7 +1,7 @@
 $(function() {
   $(function() {
-    $('.header-menu-more__title').click(function() {
-      $(this).parent().toggleClass('active');
+    $('.header-menu-more').click(function() {
+      $(this).toggleClass('active');
     });
 });
 });
