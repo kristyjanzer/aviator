@@ -301,6 +301,33 @@ button {
 
 
 @media (max-width: 900px) {
+	.header {
+		&__main {
+			padding-top: 40px;
+			padding-bottom: 250px;
+		}
+	}
+
+	.header-main {
+		&__title {
+			font-size: 42px;
+		}
+
+		&__subtitle {
+			font-size: 18px;
+			margin-top: 20px;
+		}
+
+		&__buttons {
+			margin-top: 25px;
+			flex-direction: column;
+		}
+
+		&__button {
+			width: 100%;
+		}
+	}
+
 	.header-info {
 		&__row {
 			display: none;

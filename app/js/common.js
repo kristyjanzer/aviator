@@ -18,21 +18,17 @@ burgerMenu.addEventListener("click", (e) => {
   burgerBody.classList.toggle("active");
   body.classList.toggle("lock");
   e.stopPropagation();
+
+  if($('.header-menu-more').hasClass('active')) {
+    $(".header").addClass("header-menu-open");
+    $(".header .header-button-menu__body").addClass("active");
+  }
 });
 
 $(".header-menu").clone().appendTo(".header-button-menu__body");
 
-// $(".header .header-button-menu__body a").addEventListener("click", (e) => {
-//   $(".header").removeClass("header-menu-open");
-//   $(".header .header-button-menu__body").removeClass("active");
-//   e.stopPropagation();
-// });
-
-$(".header .header-button-menu__body a").on('click', function(){
+$(".header-menu-more").addEventListener("click", (e) => {
   $(".header").removeClass("header-menu-open");
   $(".header .header-button-menu__body").removeClass("active");
+  e.stopPropagation();
 });
-
-// $("a").click(function(){
-//   body.classList.toggle("lock");
-// });
