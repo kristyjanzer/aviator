@@ -414,10 +414,18 @@ button {
 }
 
 .table {
-	table-layout: fixed;
-	border-collapse: collapse;
-	width: 100%;
-	background-color: transparent;
+	overflow-x: auto;
+
+	&::-webkit-scrollbar {
+    display: none
+	}
+
+	&__row {
+		// table-layout: fixed;
+		border-collapse: collapse;
+		white-space: nowrap;
+		background-color: transparent;
+	}
 
 	th {
 		background: rgba(63, 56, 206, 0.7);
@@ -435,6 +443,8 @@ button {
 		color: #000A1A;
 	}
 }
+
+
 
 
 
@@ -596,6 +606,7 @@ button {
 	.table {
 		td, th {
 			padding: 9px 12px;
+			font-size: 14px;
 		}
 	}
 }
