@@ -421,10 +421,11 @@ button {
 	}
 
 	&__row {
-		// table-layout: fixed;
+		table-layout: fixed;
 		border-collapse: collapse;
 		white-space: nowrap;
 		background-color: transparent;
+		width: 100%;
 	}
 
 	th {
@@ -441,6 +442,7 @@ button {
 		word-break: break-word;
 		font-size: 18px;
 		color: #000A1A;
+		white-space: normal;
 	}
 }
 
@@ -604,9 +606,17 @@ button {
 	}
 
 	.table {
+		&__row {
+			table-layout: auto;
+		}
+
 		td, th {
 			padding: 9px 12px;
 			font-size: 14px;
+		}
+
+		td {
+			white-space: nowrap;
 		}
 	}
 }
