@@ -292,10 +292,15 @@ button {
 }
 
 .about {
-	margin-top: 50px;
+	padding-top: 50px;
+	padding-bottom: 70px;
 
 	&__table-of-contents {
 		margin-top: 34px;
+	}
+
+	&__table {
+		margin-top: 41px;
 	}
 }
 
@@ -333,6 +338,103 @@ button {
 	}
 }
 
+
+.table-of-contents {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	&__item {
+		border-radius: 8px;
+		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+		background: rgb(254, 254, 254);
+		padding: 25px 36px;
+
+		&.open {
+			.table-of-contents__icon {
+				transform: rotate(180deg);
+			}
+
+			.table-of-contents__icon svg circle {
+				fill: #ae9afd;
+				fill-opacity: 1;
+			}
+		}
+	}
+
+	&__text {
+    font-size: 24px;
+    line-height: 130%;
+    font-weight: 600;
+    color: #333333;
+    cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		
+		&-text {
+			position: relative;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		transition: all .5s ease;
+	}
+
+	&__content {
+    padding-top: 20px;
+		padding-bottom: 8px;
+		display: none;
+	}
+
+	&__lists {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	&__link {
+		color: #333333;
+		font-size: 18px;
+		font-weight: 600;
+
+		&:hover {
+			color: #6236FF;
+			text-decoration: underline;
+		}
+	}
+}
+
+.table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+	background-color: transparent;
+
+	th {
+		background: rgba(63, 56, 206, 0.7);
+		color: $white;
+		padding: 20px;
+		text-align: left;
+		border: 2px solid rgb(215, 215, 215);
+	}
+
+	td {
+		padding: 9px 20px;
+		border: 2px solid rgb(215, 215, 215);
+		word-break: break-word;
+		font-size: 18px;
+		color: #000A1A;
+	}
+}
 
 
 
@@ -488,6 +590,12 @@ button {
 		&__date,
 		&__time {
 			font-size: 14px;
+		}
+	}
+
+	.table {
+		td, th {
+			padding: 9px 12px;
 		}
 	}
 }
