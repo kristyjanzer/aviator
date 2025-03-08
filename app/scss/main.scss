@@ -128,6 +128,11 @@ button {
 		background-color: $white;
 		color: $accent;
 	}
+
+	&--primary {
+		background-color: $primary;
+		color: $white;
+	}
 }
 
 
@@ -302,6 +307,51 @@ button {
 	&__table {
 		margin-top: 41px;
 	}
+
+	&__block {
+		margin-top: 54px;
+	}
+
+	&__title {
+		font-weight: 700;
+		color: #333333;
+		font-size: 36px;
+
+		& + .about__descr {
+			margin-top: 20px;
+		}
+	}
+
+	&__columns {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 37px;
+		margin-top: 22px;
+	}
+
+	&__col {
+		width: 50%;
+	}
+
+	&__descr {
+		font-size: 18px;
+		color: #000000;
+
+		& + & {
+			margin-top: 20px;
+		}
+	}
+
+	&__image {
+		img {
+			border-radius: 8px;
+		}
+	}
+
+	&__button {
+		margin-top: 28px;
+	}
 }
 
 .article {
@@ -363,18 +413,10 @@ button {
 	}
 
 	&__text {
-    font-size: 24px;
-    line-height: 130%;
-    font-weight: 600;
-    color: #333333;
     cursor: pointer;
 		display: flex;
 		align-items: center;
 		gap: 16px;
-		
-		&-text {
-			position: relative;
-		}
 	}
 
 	&__icon {
@@ -399,6 +441,10 @@ button {
 		display: flex;
 		flex-direction: column;
 		gap: 5px;
+
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
 	}
 
 	&__link {
@@ -409,6 +455,14 @@ button {
 		&:hover {
 			color: #6236FF;
 			text-decoration: underline;
+		}
+
+		&-text {
+			position: relative;
+			font-size: 24px;
+			line-height: 130%;
+			font-weight: 600;
+			color: #333333;
 		}
 	}
 }
@@ -437,7 +491,7 @@ button {
 	}
 
 	td {
-		padding: 9px 20px;
+		padding: 10px 20px;
 		border: 2px solid rgb(215, 215, 215);
 		word-break: break-word;
 		font-size: 18px;
@@ -457,6 +511,10 @@ button {
 
 
 @media (max-width: 900px) {
+	.button {
+		width: 100%;
+	}
+
 	.header {
 		background-position: 30% 0px;
 
@@ -479,10 +537,6 @@ button {
 		&__buttons {
 			margin-top: 25px;
 			flex-direction: column;
-		}
-
-		&__button {
-			width: 100%;
 		}
 	}
 
@@ -587,8 +641,52 @@ button {
 	}
 
 	.about {
+		padding-top: 30px;
+		padding-bottom: 63px;
+
 		&__table-of-contents {
 			margin-top: 32px;
+		}
+
+		&__title {
+			font-size: 33px;
+		}
+
+		&__columns {
+			flex-direction: column;
+			gap: 34px;
+			margin-top: 30px;
+		}
+
+		&__col {
+			width: 100%;
+
+			&--info {
+				order: 2;
+			}
+
+			&--img {
+				order: 1;
+			}
+		}
+
+		&__descr {
+			font-size: 16px;
+		}
+
+		&__image {
+			margin-left: -20px;
+			margin-right: -20px;
+
+			img {
+				border-radius: 0;
+			}
+		}
+	}
+
+	.table-of-contents {
+		&__item {
+			padding: 15px 20px;
 		}
 	}
 
@@ -596,6 +694,7 @@ button {
 		&__row {
 			flex-direction: column;
 			align-items: flex-start;
+			gap: 12px;
 		}
 
 		&__text,
@@ -611,11 +710,15 @@ button {
 		}
 
 		td, th {
-			padding: 9px 12px;
-			font-size: 14px;
+			font-size: 16px;
 		}
-
+		
+		th {
+			
+		}
+		
 		td {
+			padding: 10px 12px;
 			white-space: nowrap;
 		}
 	}
