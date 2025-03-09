@@ -72,7 +72,7 @@ $('.bookmakers-block__button').click(function (e) {
   if ($('.bookmakers-block-list__item:hidden').length == 0) {
     if (length_before_toggle == 0) {
       $('.bookmakers-block-list__item--hidden').toggle();
-      $('html, body').animate({ scrollTop: $('.bookmakers-block-head').position().top }, 'slow');
+      $('html, body').animate({ scrollTop: $('.bookmakers-block').position().top }, 'slow');
       $('.bookmakers-block__button-text').text("Показать еще");
       $('.bookmakers-block__button').removeClass('hide');
     }

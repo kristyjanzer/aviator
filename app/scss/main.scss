@@ -877,6 +877,33 @@ button {
 			white-space: nowrap;
 		}
 	}
+
+	.bookmakers-block-head {
+		display: none;
+	}
+
+	.bookmakers-block-list {
+		&__item {
+			padding: 30px;
+
+			&-row {
+				flex-direction: column;
+				gap: 30px;
+	
+				> div {
+					width: 100%;
+				}
+			}
+		}
+
+		&__logo {
+			max-width: 130px;
+		}
+
+		&__advantages {
+			margin-left: 20px;
+		}
+	}
 }
 
 
