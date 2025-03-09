@@ -85,3 +85,26 @@ $('.bookmakers-block__button').click(function (e) {
     $('.bookmakers-block__button-text').text("Показать еще");
   }
 });
+
+
+// Services Slider
+$('.uni-slider').slick({
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: false,
+  infinite: false,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 900,
+        settings: {
+          dots: false,
+          arrows: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true
+        },
+    }
+  ]
+});
