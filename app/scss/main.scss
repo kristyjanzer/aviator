@@ -133,8 +133,35 @@ button {
 		background-color: $primary;
 		color: $white;
 	}
+
+	&--bookmakers {
+		background-color: rgba(63, 56, 206, 0.3);
+		color: #333333;
+	}
 }
 
+.sect-title {
+	font-weight: 700;
+	color: #333333;
+	font-size: 36px;
+
+	& + p {
+		margin-top: 23px;
+	}
+}
+
+.sect-descr {
+	font-size: 18px;
+	color: $black
+
+	& + & {
+		margin-top: 20px;
+	}
+}
+
+.sect-padding {
+	padding: 55px 0 65px;
+}
 
 
 .header {
@@ -297,9 +324,6 @@ button {
 }
 
 .about {
-	padding-top: 50px;
-	padding-bottom: 70px;
-
 	&__table-of-contents {
 		margin-top: 34px;
 	}
@@ -312,16 +336,6 @@ button {
 		margin-top: 54px;
 	}
 
-	&__title {
-		font-weight: 700;
-		color: #333333;
-		font-size: 36px;
-
-		& + .about__descr {
-			margin-top: 20px;
-		}
-	}
-
 	&__columns {
 		display: flex;
 		align-items: flex-start;
@@ -332,15 +346,6 @@ button {
 
 	&__col {
 		width: 50%;
-	}
-
-	&__descr {
-		font-size: 18px;
-		color: #000000;
-
-		& + & {
-			margin-top: 20px;
-		}
 	}
 
 	&__image {
@@ -387,7 +392,6 @@ button {
 		font-size: 14px;
 	}
 }
-
 
 .table-of-contents {
 	display: flex;
@@ -500,7 +504,129 @@ button {
 	}
 }
 
+.bookmakers {
+	background-color: #F5F5F5;
 
+	&__block {
+		margin-top: 45px;
+	}
+}
+
+.bookmakers-block {
+	&__content {
+		margin-top: 10px;
+	}
+}
+
+.bookmakers-block-head {
+	min-height: 50px;
+	background-color: #D9D9D9;
+	border-radius: 8px;
+
+	&__list {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 14px;
+	}
+
+	&__item {
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 130%;
+		color: #333333;
+		width: 18%;
+	}
+}
+
+.bookmakers-block-list {
+	&__item {
+		border-radius: 8px;
+		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+		background: rgb(254, 254, 254);
+		padding: 40px 50px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		
+		&--accent {
+			border: 2px solid rgba(63, 56, 206, 0.9);
+		}
+
+		> div {
+			width: 20%;
+		}
+
+		&:not(:first-child) {
+			margin-top: 18px;
+		}
+	}
+
+	&__logo {
+		max-width: 200px;
+		font-size: 0;
+	}
+
+	&__rating {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		&-title {
+			font-size: 18px;
+			font-weight: 600;
+		}
+
+		&-box {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		&-stars {
+			font-size: 0;
+		}
+
+		&-number {
+			font-size: 24px;
+			color: $black;
+		}
+	}
+
+	&__advantages-item {
+		font-size: 18px;
+		color: $black;
+		position: relative;
+
+		&::before {
+			content: '';
+			width: 11px;
+			height: 11px;
+			position: absolute;
+			left: -20px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&--plus {
+			&::before {
+				background: url('../img/plus.svg') no-repeat 50%;
+				background-size: contain;
+			}
+		}
+
+		&--minus {
+			&::before {
+				background: url('../img/minus.svg') no-repeat 50%;
+				background-size: contain;
+			}
+		}
+	}
+
+	&__button {
+		min-width: 193px;
+	}
+}
 
 
 
@@ -513,6 +639,18 @@ button {
 @media (max-width: 900px) {
 	.button {
 		width: 100%;
+	}
+
+	.sect-title {
+		font-size: 33px;
+	}
+
+	.sect-padding {
+		padding: 30px 0 50px;
+	}
+
+	.sect-descr {
+		font-size: 16px;
 	}
 
 	.header {
@@ -641,15 +779,8 @@ button {
 	}
 
 	.about {
-		padding-top: 30px;
-		padding-bottom: 63px;
-
 		&__table-of-contents {
 			margin-top: 32px;
-		}
-
-		&__title {
-			font-size: 33px;
 		}
 
 		&__columns {
@@ -668,10 +799,6 @@ button {
 			&--img {
 				order: 1;
 			}
-		}
-
-		&__descr {
-			font-size: 16px;
 		}
 
 		&__image {
