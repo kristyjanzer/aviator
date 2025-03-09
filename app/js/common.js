@@ -87,7 +87,7 @@ $('.bookmakers-block__button').click(function (e) {
 });
 
 
-// Services Slider
+// Uni Slider
 $('.uni-slider').slick({
   slidesToShow: 2,
   slidesToScroll: 1,
