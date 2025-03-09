@@ -62,3 +62,26 @@ AccordionBlock.prototype.dropdown = function (e) {
 }
 
 let accordionBlock = new AccordionBlock($('.table-of-contents'), false);
+
+
+// Show all button
+$('.bookmakers-block__button').click(function (e) {
+  e.preventDefault(); e.returnValue = !1; 
+  var length_before_toggle = $('.bookmakers-block-list__item:hidden').length; 
+  $('.bookmakers-block-list__item:hidden').slice(0, 10).toggle(); 
+  if ($('.bookmakers-block-list__item:hidden').length == 0) {
+    if (length_before_toggle == 0) {
+      $('.bookmakers-block-list__item--hidden').toggle();
+      $('html, body').animate({ scrollTop: $('.bookmakers-block-head').position().top }, 'slow');
+      $('.bookmakers-block__button-text').text("Показать еще");
+      $('.bookmakers-block__button').removeClass('hide');
+    }
+    else {
+      $('.bookmakers-block__button-text').text("Скрыть");
+      $('.bookmakers-block__button').addClass('hide');
+    }
+  }
+  else {
+    $('.bookmakers-block__button-text').text("Показать еще");
+  }
+});

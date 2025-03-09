@@ -516,6 +516,27 @@ button {
 	&__content {
 		margin-top: 10px;
 	}
+
+	&__button {
+		min-width: 232px;
+		margin: 53px auto 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+
+		&.hide {
+			.bookmakers-block__button-icon {
+				transform: rotate(180deg);
+			}
+		}
+		
+		&-text {
+			font-size: 18px;
+			font-weight: 600;
+			color: #333333;
+		}
+	}
 }
 
 .bookmakers-block-head {
@@ -545,20 +566,27 @@ button {
 		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
 		background: rgb(254, 254, 254);
 		padding: 40px 50px;
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
+
+		&-row {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+
+			> div {
+				width: 20%;
+			}
+		}
 		
 		&--accent {
 			border: 2px solid rgba(63, 56, 206, 0.9);
 		}
 
-		> div {
-			width: 20%;
-		}
-
 		&:not(:first-child) {
 			margin-top: 18px;
+		}
+
+		&--hidden {
+			display: none;
 		}
 	}
 
