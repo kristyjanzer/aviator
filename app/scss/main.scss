@@ -892,10 +892,7 @@ button {
 
 .m-tabs-menu {
 	cursor: pointer;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	width: 46%;
+	width: 48%;
 
 	@media (max-width: 880px) {
 		width: 100%;
@@ -920,27 +917,19 @@ button {
 		.m-tabs-menu__icon {
 			display: block;
 		}
+
+		& + .m-tabs-menu__item {
+			// border-top: none;
+		}
 	}
 
 	&__item {
 		padding: 22px 22px 22px 0px;
 		position: relative;
-		vertical-align: middle;
 
-		&:last-child {
-			border-bottom: 1px solid #767676;
-		}
-
-		&.active {
-
-			& + .m-tabs-menu__item {
-				border-top: none;
-			}
-
-			.m-tabs-menu__icon {
-				display: inline-block;
-			}
-		}
+		// &:last-child {
+		// 	border-bottom: 1px solid #767676;
+		// }
 	}
 
 	&__text {
@@ -968,7 +957,7 @@ button {
 			width: 16px;
 			height: 2px;
 			border-radius: 9999px;
-			background-color: #3f38ce;
+			background-color: $primary;
 			transform-origin: calc(100% - 1px) 50%;
 		}
 
@@ -983,22 +972,27 @@ button {
 }
 
 .m-tabs-info {
-	transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 47%;
+	display: none;
+	transform: translateX(100%);
 
-	&__item {
-		opacity: 0;
-		transform: translateX(50px);
-		position: absolute;
-		list-style: none;
-		transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
-
-		&.active {
-			transition-delay: .3s;
-			z-index: 2;
-			opacity: 1;
-			transform: translateX(0px);
-		}
+	@media (max-width: 880px) {
+		padding: 0 32px;
+		width: 100%;
+		position: relative;
 	}
+
+	&.active {
+		transform: none;
+		display: block;
+	}
+
+	// &__item {
+	// 	transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+	// }
 
 	&__text {
 		font-size: 18px;
@@ -1015,41 +1009,6 @@ button {
 	}
 }
 
-
-
-
-
-.tabs {
-	.content {
-		overflow: hidden;
-		background-color: #efefef;
-		transition: all 1s;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 53%;
-		display: none;
-		padding: 0 32px 32px 32px;
-		transform: translateX(100%);
-
-		@media (max-width: 880px) {
-			padding: 0 32px;
-			width: 100%;
-			position: relative;
-		}
-
-		&.active {
-			max-height: none;
-			transform: none;
-			display: block;
-			
-			// @media (max-width: 880px) {
-			// 	max-height: 1000px;
-			// 	display: block;
-			// }
-		}
-	}
-}
 
 
 
