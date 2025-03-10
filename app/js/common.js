@@ -111,40 +111,40 @@ $('.uni-slider').slick({
 
 
 // Tabs
-$(document).on("click", ".m-tabs-menu__item", function() {
-	let numberIndex = $(this).index();
+// $(document).on("click", ".m-tabs-menu__item", function() {
+// 	let numberIndex = $(this).index();
 
-	if (!$(this).is("active")) {
-		$(".m-tabs-menu__item").removeClass("active");
-		$(".m-tabs-info__item").removeClass("active");
+// 	if (!$(this).is("active")) {
+// 		$(".m-tabs-menu__item").removeClass("active");
+// 		$(".m-tabs-info__item").removeClass("active");
 
-		$(this).addClass("active");
-		$(".m-tabs-info").find(".m-tabs-info__item:eq(" + numberIndex + ")").addClass("active");
+// 		$(this).addClass("active");
+// 		$(".m-tabs-info").find(".m-tabs-info__item:eq(" + numberIndex + ")").addClass("active");
 
-		let listItemHeight = $(".m-tabs-info")
-			.find(".m-tabs-info__item:eq(" + numberIndex + ")")
-			.innerHeight();
-		$(".m-tabs-info").height(listItemHeight + "px");
-	}
-});
+// 		let listItemHeight = $(".m-tabs-info")
+// 			.find(".m-tabs-info__item:eq(" + numberIndex + ")")
+// 			.innerHeight();
+// 		$(".m-tabs-info").height(listItemHeight + "px");
+// 	}
+// });
 
 
 
 // ----------------- Variables
 
-wrapper   = $(".tabs");
-tabs      = wrapper.find(".tab");
-tabToggle = wrapper.find(".tab-toggle");
+wrapper   = $(".m-tabs");
+// tabs      = wrapper.find(".m-tabs-menu");
+tabToggle = wrapper.find(".m-tabs-menu");
 
 // ----------------- Functions
 
 function openTab() {
-	var content     = $(this).parent().next(".content"),
+	let info   = $(this).next(".m-tabs-info"),
 		activeItems = wrapper.find(".active");
 	
 	if(!$(this).hasClass('active')) {
-		$(this).add(content).add(activeItems).toggleClass('active');
-		wrapper.css('min-height', content.outerHeight());
+		$(this).add(info).add(activeItems).toggleClass('active');
+		wrapper.css('min-height', info.outerHeight());
 	}
 };
 
