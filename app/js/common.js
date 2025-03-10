@@ -67,7 +67,7 @@ let accordionBlock = new AccordionBlock($('.table-of-contents'), false);
 // Show all button
 $('.bookmakers-block__button').click(function (e) {
   e.preventDefault(); e.returnValue = !1; 
-  var length_before_toggle = $('.bookmakers-block-list__item:hidden').length; 
+  let length_before_toggle = $('.bookmakers-block-list__item:hidden').length; 
   $('.bookmakers-block-list__item:hidden').slice(0, 10).toggle(); 
   if ($('.bookmakers-block-list__item:hidden').length == 0) {
     if (length_before_toggle == 0) {
@@ -107,4 +107,23 @@ $('.uni-slider').slick({
         },
     }
   ]
+});
+
+
+// Tabs
+$(document).on("click", ".m-tabs-menu__item", function() {
+	let numberIndex = $(this).index();
+
+	if (!$(this).is("active")) {
+		$(".m-tabs-menu__item").removeClass("active");
+		$(".m-tabs-info__item").removeClass("active");
+
+		$(this).addClass("active");
+		$(".m-tabs-info").find(".m-tabs-info__item:eq(" + numberIndex + ")").addClass("active");
+
+		let listItemHeight = $(".m-tabs-info")
+			.find(".m-tabs-info__item:eq(" + numberIndex + ")")
+			.innerHeight();
+		$(".m-tabs-info").height(listItemHeight + "px");
+	}
 });

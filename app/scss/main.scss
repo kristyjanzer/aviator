@@ -25,7 +25,7 @@
 
 body {
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 400;
 	min-width: 320px;
 	position: relative;
 	line-height: 1.2;
@@ -860,6 +860,148 @@ button {
 		bottom: 0;
 	}
 }
+
+.start {
+	&__tabs {
+		margin-top: 47px;
+	}
+}
+
+.m-tabs {
+	position: relative;
+
+	&__row {
+		margin-left: -40px;
+	}
+
+	&__col {
+		display: inline-block;
+		margin-right: -4px;
+		padding-left: 40px;
+		vertical-align: top;
+
+		&--menu {
+			width: 46%;
+		}
+
+		&--info {
+			width: 53%;
+		}
+	}
+}
+
+.m-tabs-menu {
+	&__item {
+		padding: 22px 22px 22px 0px;
+		cursor: pointer;
+		position: relative;
+		vertical-align: middle;
+		transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+		border-top: 1px solid #767676;
+
+		&:last-child {
+			border-bottom: 1px solid #767676;
+		}
+
+		&.active {
+			border-top: 1px solid $primary;
+			border-bottom: 1px solid $primary;
+
+			& + .m-tabs-menu__item {
+				border-top: none;
+			}
+
+			.m-tabs-menu__icon {
+				display: inline-block;
+			}
+
+			.m-tabs-menu__text {
+				color: $primary;
+			}
+		}
+	}
+
+	&__text {
+		color: rgba(34, 34, 34, 0.6);
+		font-size: 26px;
+		font-weight: 500;
+		letter-spacing: -1px;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+		display: none;
+		width: 12px;
+		height: 21px;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: calc(50% - 1px);
+			right: 0;
+			width: 16px;
+			height: 2px;
+			border-radius: 9999px;
+			background-color: #3f38ce;
+			transform-origin: calc(100% - 1px) 50%;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+		
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+.m-tabs-info {
+	position: relative;
+	height: 0px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	&__item {
+		opacity: 0;
+		transform: translateX(50px);
+		position: absolute;
+		list-style: none;
+		transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+
+		&.active {
+			transition-delay: .3s;
+			z-index: 2;
+			opacity: 1;
+			transform: translateX(0px);
+			position: relative;
+		}
+	}
+
+	&__text {
+		font-size: 18px;
+		font-weight: 400;
+		color: $black;
+	}
+
+	&__list {
+		margin-top: 10px;
+	}
+
+	&__button {
+		margin-top: 22px;
+	}
+}
+
+
+
+
 
 /************* Media *****************************/
 @media (max-width: 1100px) {
