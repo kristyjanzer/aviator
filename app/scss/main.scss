@@ -159,6 +159,7 @@ section {
 	font-weight: 600;
 	color: $black;
 
+	& + p,
 	& + .sect-descr {
 		margin-top: 26px;
 	}
@@ -185,6 +186,10 @@ section {
 	& + .sect-subtitle {
 		margin-top: 37px;
 	}
+
+	& + .m-table {
+		margin-top: 30px;
+	}
 }
 
 .sect-postscript {
@@ -192,6 +197,8 @@ section {
 	font-weight: 600;
 	color: $primary;
 
+	& + h2,
+	& + .sect-title
 	& + h3,
 	& + .sect-subtitle {
 		margin-top: 60px;
@@ -563,6 +570,11 @@ section {
 		color: #000A1A;
 		white-space: normal;
 	}
+
+	& + .sect-postscript,
+	& + p {
+		margin-top: 30px;
+	}
 }
 
 .m-list {
@@ -767,16 +779,34 @@ section {
 
 
 .information {
+	&__block {
+		&:not(:first-child) {
+			margin-top: 55px;
+		}
+	}
+
 	&__list {
 		margin-top: 30px;
+
+		& + p,
+		& + .sect-descr {
+			margin-top: 25px;
+		}
 	}
 
 	&__button {
 		margin-top: 35px;
 
+		& + h2,
+		& + .sect-title,
+		& + h3,
 		& + .sect-subtitle {
 			margin-top: 60px;
 		}
+	}
+
+	&__table {
+		margin-top: 30px;
 	}
 }
 
@@ -1066,6 +1096,27 @@ section {
 	}
 }
 
+.info-list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		font-size: 18px;
+		font-weight: 600;
+		color: #222222;
+	}
+
+	&__text {
+		font-size: 18px;
+		color: $black;
+	}
+}
 
 
 
@@ -1385,11 +1436,15 @@ section {
 		width: 100%;
 
 		&__item {
-			padding: 15px 0;
+			padding: 15px 25px 15px 0;
 		}
 
 		&__text {
 			font-size: 24px;
+		}
+
+		&__icon {
+			right: 15px;
 		}
 	}
 
@@ -1398,6 +1453,13 @@ section {
 		width: 100%;
 		position: relative;
 
+		&__text {
+			font-size: 16px;
+		}
+	}
+
+	.info-list {
+		&__title,
 		&__text {
 			font-size: 16px;
 		}
