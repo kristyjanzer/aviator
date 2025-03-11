@@ -143,7 +143,7 @@ function openTab() {
 		activeItems = wrapper.find(".active");
 	
 	if(!$(this).hasClass('active')) {
-		$(this).add(info).add(activeItems).toggleClass('active');
+    $(this).add(info).add(activeItems).toggleClass('active');
 		wrapper.css('min-height', info.outerHeight());
 	}
 };

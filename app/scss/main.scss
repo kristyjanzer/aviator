@@ -103,6 +103,10 @@ button {
 	width: 100%;
 }
 
+section {
+	position: relative;
+}
+
 .button {
 	font-weight: 600;
 	line-height: 130%;
@@ -150,6 +154,16 @@ button {
 	}
 }
 
+.sect-subtitle {
+	font-size: 26px;
+	font-weight: 600;
+	color: $black;
+
+	& + .sect-descr {
+		margin-top: 26px;
+	}
+}
+
 .sect-descr {
 	font-size: 18px;
 	color: $black;
@@ -158,8 +172,29 @@ button {
 		margin-top: 20px;
 	}
 
-	& + h2 {
+	& + h2,
+	& + .sect-title {
 		margin-top: 55px;
+	}
+
+	& + .m-list {
+		margin-top: 25px;
+	}
+
+	& + h3,
+	& + .sect-subtitle {
+		margin-top: 37px;
+	}
+}
+
+.sect-postscript {
+	font-size: 18px;
+	font-weight: 600;
+	color: $primary;
+
+	& + h3,
+	& + .sect-subtitle {
+		margin-top: 60px;
 	}
 }
 
@@ -335,7 +370,6 @@ button {
 	display: none;
 }
 
-
 .main {
 	background-color: $white;
 }
@@ -352,13 +386,23 @@ button {
 	&__block {
 		margin-top: 54px;
 	}
+}
 
+.info-block {
 	&__columns {
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
 		gap: 37px;
 		margin-top: 22px;
+	}
+
+	&--image-pos {
+		.info-block__image {
+			position: absolute;
+			bottom: 0;
+			margin-left: 50px;
+		}
 	}
 
 	&__col {
@@ -564,6 +608,11 @@ button {
 	& + p {
 		margin-top: 25px;
 	}
+
+	& + h3,
+	& + .sect-subtitle {
+		margin-top: 60px;
+	}
 }
 
 .bookmakers {
@@ -721,6 +770,14 @@ button {
 	&__list {
 		margin-top: 30px;
 	}
+
+	&__button {
+		margin-top: 35px;
+
+		& + .sect-subtitle {
+			margin-top: 60px;
+		}
+	}
 }
 
 .how-works {
@@ -850,9 +907,6 @@ button {
 	}
 
 	&__postscript {
-		font-size: 18px;
-		font-weight: 600;
-		color: $primary;
 		margin-top: 16px;
 	}
 
@@ -869,6 +923,7 @@ button {
 
 .m-tabs {
 	position: relative;
+	min-height: 470px;
 
 	&__row {
 		margin-left: -40px;
@@ -888,25 +943,36 @@ button {
 			width: 53%;
 		}
 	}
+
+	> div {
+		&:nth-child(odd) {
+			border-bottom: 1px solid #767676;
+		}
+
+		&:first-child {
+			border-top: 1px solid #767676;
+		}
+	}
 }
 
 .m-tabs-menu {
 	cursor: pointer;
 	width: 48%;
 
-	@media (max-width: 880px) {
-		width: 100%;
-	}
-
 	&__item {
 		transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
-		border-top: 1px solid #767676;
 	}
 
 	&.active {
-		.m-tabs-menu__item {
-			border-top: 1px solid $primary;
-			border-bottom: 1px solid $primary;
+		& {
+			&:nth-child(odd) {
+				border-top: 1px solid $primary;
+				border-bottom: 1px solid $primary;
+			}
+	
+			&:first-child {
+				border-top: 1px solid $primary;
+			}
 		}
 
 		.m-tabs-menu__text {
@@ -926,10 +992,6 @@ button {
 	&__item {
 		padding: 22px 22px 22px 0px;
 		position: relative;
-
-		// &:last-child {
-		// 	border-bottom: 1px solid #767676;
-		// }
 	}
 
 	&__text {
@@ -979,15 +1041,10 @@ button {
 	display: none;
 	transform: translateX(100%);
 
-	@media (max-width: 880px) {
-		padding: 0 32px;
-		width: 100%;
-		position: relative;
-	}
-
 	&.active {
 		transform: none;
 		display: block;
+		max-height: none;
 	}
 
 	// &__item {
@@ -1001,7 +1058,7 @@ button {
 	}
 
 	&__list {
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 
 	&__button {
@@ -1030,10 +1087,6 @@ button {
 		&__column {
 			padding: 30px 20px;
 		}
-
-		&__postscript {
-			font-size: 16px;
-		}
 	}
 
 	.slick-dots {
@@ -1057,6 +1110,14 @@ button {
 	}
 
 	.sect-descr {
+		font-size: 16px;
+	}
+
+	.sect-subtitle {
+		font-size: 24px;
+	}
+
+	.sect-postscript {
 		font-size: 16px;
 	}
 
@@ -1200,11 +1261,32 @@ button {
 		&__table-of-contents {
 			margin-top: 32px;
 		}
+	}
 
+	.info-block {
 		&__columns {
 			flex-direction: column;
 			gap: 34px;
 			margin-top: 30px;
+		}
+
+		&--image-pos {
+			.info-block__image {
+				position: relative;
+				margin-left: 0;
+				margin-right: 0;
+				margin-bottom: -50px;
+			}
+
+			.info-block__col {
+				&--info {
+					order: 1;
+				}
+	
+				&--image {
+					order: 2;
+				}
+			}
 		}
 
 		&__col {
@@ -1214,7 +1296,7 @@ button {
 				order: 2;
 			}
 
-			&--img {
+			&--image {
 				order: 1;
 			}
 		}
@@ -1297,6 +1379,28 @@ button {
 
 	.how-works {
 		padding-bottom: 100px;
+	}
+
+	.m-tabs-menu {
+		width: 100%;
+
+		&__item {
+			padding: 15px 0;
+		}
+
+		&__text {
+			font-size: 24px;
+		}
+	}
+
+	.m-tabs-info {
+		padding: 24px 0;
+		width: 100%;
+		position: relative;
+
+		&__text {
+			font-size: 16px;
+		}
 	}
 }
 
