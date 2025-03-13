@@ -86,9 +86,31 @@ $('.bookmakers-block__button').click(function (e) {
   }
 });
 
+// Slider Default
+$('.slider-default').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: true,
+  infinite: false,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 900,
+        settings: {
+          dots: false,
+          arrows: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true
+        },
+    }
+  ]
+});
 
-// Uni Slider
-$('.uni-slider').slick({
+
+// Slider Little
+$('.slider-little').slick({
   slidesToShow: 2,
   slidesToScroll: 1,
   dots: false,
@@ -108,6 +130,31 @@ $('.uni-slider').slick({
     }
   ]
 });
+
+
+// Slider Reviews
+$('.reviews-slider').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 900,
+        settings: {
+          dots: false,
+          arrows: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true
+        },
+    }
+  ]
+});
+
+
 
 
 // Tabs
@@ -154,6 +201,39 @@ tabToggle.on('click', openTab);
 
 // ----------------- Constructor functions
 
-$(window).load(function(){
+$(window).on('load', function() {
   tabToggle.first().trigger('click');  
 });
+
+
+
+// FAQ Tabs
+$(".faq-accordion__title").click(function() {
+  accordionChange($(this));
+});
+
+
+function accordionChange(el) {
+  el.toggleClass('active');
+  
+  let panel = el.next();
+  
+  panel.css({
+    maxHeight: '0px',
+  });
+  
+  let contentHeight = panel[0].scrollHeight;
+  
+  if (el.hasClass('active')) {
+    panel.css({
+      maxHeight: contentHeight + 'px',
+    });
+  } else {
+    panel.css('max-height', '0px');
+    setTimeout(function() {
+      panel.css({
+        maxHeight: '',
+      });
+    }, 300);
+  }
+}
