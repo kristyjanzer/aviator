@@ -5,6 +5,8 @@ $(function() {
   });
 });
 
+
+
 // Burger Menu
 const body = document.querySelector("body");
 const header = document.querySelector(".header");
@@ -23,11 +25,6 @@ burgerMenu.addEventListener("click", (e) => {
     $(".header").addClass("header-menu-open");
     $(".header .header-button-menu__body").addClass("active");
   }
-
-  // $(".header-menu-more").click(function() {
-  //   $(".header").removeClass("header-menu-open");
-  //   $(".header .header-button-menu__body").removeClass("active");
-  // });
 });
 
 $(".header-menu").clone().appendTo(".header-button-menu__body");
@@ -64,27 +61,36 @@ AccordionBlock.prototype.dropdown = function (e) {
 let accordionBlock = new AccordionBlock($('.table-of-contents'), false);
 
 
+
 // Show all button
 $('.bookmakers-block__button').click(function (e) {
-  e.preventDefault(); e.returnValue = !1; 
-  let length_before_toggle = $('.bookmakers-block-list__item:hidden').length; 
-  $('.bookmakers-block-list__item:hidden').slice(0, 10).toggle(); 
+  e.preventDefault();
+  e.returnValue = false;
+  
+  let length_before_toggle = $('.bookmakers-block-list__item:hidden').length;
+  
+  $('.bookmakers-block-list__item:hidden').slice(0, 10).toggle();
+  
   if ($('.bookmakers-block-list__item:hidden').length == 0) {
     if (length_before_toggle == 0) {
       $('.bookmakers-block-list__item--hidden').toggle();
-      $('html, body').animate({ scrollTop: $('.bookmakers-block').position().top }, 'slow');
+      
+      $('html, body').animate({
+        scrollTop: $('.bookmakers-block').offset().top
+      }, 'slow');
+      
       $('.bookmakers-block__button-text').text("Показать еще");
       $('.bookmakers-block__button').removeClass('hide');
-    }
-    else {
+    } else {
       $('.bookmakers-block__button-text').text("Скрыть");
       $('.bookmakers-block__button').addClass('hide');
     }
-  }
-  else {
+  } else {
     $('.bookmakers-block__button-text').text("Показать еще");
   }
 });
+
+
 
 // Slider Default
 $('.slider-default').slick({
@@ -109,6 +115,7 @@ $('.slider-default').slick({
 });
 
 
+
 // Slider Little
 $('.slider-little').slick({
   slidesToShow: 2,
@@ -130,6 +137,7 @@ $('.slider-little').slick({
     }
   ]
 });
+
 
 
 // Slider Reviews
@@ -156,53 +164,37 @@ $('.reviews-slider').slick({
 
 
 
-
 // Tabs
-// $(document).on("click", ".m-tabs-menu__item", function() {
-// 	let numberIndex = $(this).index();
-
-// 	if (!$(this).is("active")) {
-// 		$(".m-tabs-menu__item").removeClass("active");
-// 		$(".m-tabs-info__item").removeClass("active");
-
-// 		$(this).addClass("active");
-// 		$(".m-tabs-info").find(".m-tabs-info__item:eq(" + numberIndex + ")").addClass("active");
-
-// 		let listItemHeight = $(".m-tabs-info")
-// 			.find(".m-tabs-info__item:eq(" + numberIndex + ")")
-// 			.innerHeight();
-// 		$(".m-tabs-info").height(listItemHeight + "px");
-// 	}
-// });
-
-
-
-// ----------------- Variables
-
-wrapper   = $(".m-tabs");
-// tabs      = wrapper.find(".m-tabs-menu");
-tabToggle = wrapper.find(".m-tabs-menu");
-
-// ----------------- Functions
+const wrapper = $(".m-tabs");
+const tabToggle = wrapper.find(".m-tabs-menu");
 
 function openTab() {
-	let info   = $(this).next(".m-tabs-info"),
-		activeItems = wrapper.find(".active");
-	
-	if(!$(this).hasClass('active')) {
-    $(this).add(info).add(activeItems).toggleClass('active');
-		wrapper.css('min-height', info.outerHeight());
-	}
+    let info = $(this).next(".m-tabs-info"),
+        activeItems = wrapper.find(".active");
+    
+    if (!$(this).hasClass('active') || activeItems.length === 0) {
+      $(this).add(info).add(activeItems).toggleClass('active');
+      const activeContentHeight = info.outerHeight(true);
+      wrapper.css('min-height', activeContentHeight + 'px');
+    }
 };
-
-// ----------------- Interactions
 
 tabToggle.on('click', openTab);
 
-// ----------------- Constructor functions
-
 $(window).on('load', function() {
-  tabToggle.first().trigger('click');  
+  const initialInfo = tabToggle.first().next(".m-tabs-info");
+  const initialHeight = initialInfo.outerHeight(true);
+  wrapper.css('min-height', initialHeight + 'px');
+  
+  setTimeout(function() {
+    tabToggle.first().trigger('click');
+  }, 100);
+});
+
+$(window).on('resize', function() {
+    const currentActiveContent = wrapper.find('.m-tabs-info.active');
+    const currentHeight = currentActiveContent.outerHeight(true);
+    wrapper.css('min-height', currentHeight + 'px');
 });
 
 
@@ -211,7 +203,6 @@ $(window).on('load', function() {
 $(".faq-accordion__title").click(function() {
   accordionChange($(this));
 });
-
 
 function accordionChange(el) {
   el.toggleClass('active');
