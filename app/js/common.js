@@ -228,3 +228,23 @@ function accordionChange(el) {
     }, 300);
   }
 }
+
+
+// Scroll to ID
+const links = document.querySelectorAll('a[href^="#"]');
+
+links.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.hash;
+    const target = document.querySelector(targetId);
+    
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});

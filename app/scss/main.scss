@@ -1037,9 +1037,9 @@ section {
 			display: block;
 		}
 
-		& + .m-tabs-menu__item {
-			// border-top: none;
-		}
+		// & + .m-tabs-menu__item {
+		// 	border-top: none;
+		// }
 	}
 
 	&__item {
@@ -1696,10 +1696,6 @@ section {
 
 		td, th {
 			font-size: 16px;
-		}
-		
-		th {
-			
 		}
 		
 		td {
